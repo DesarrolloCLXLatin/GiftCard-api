@@ -8,3 +8,5 @@ export const UserRouter = Router();
 UserRouter.post('/register', [], Middleware.handleRequest(UserService.register));
 
 UserRouter.post('/update-password', Middleware.handleRequest(UserService.updatePassword));
+
+UserRouter.post('/login', Middleware.handleRequest(UserService.login));
