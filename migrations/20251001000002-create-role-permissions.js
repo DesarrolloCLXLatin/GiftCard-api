@@ -6,18 +6,10 @@ module.exports = {
       roleId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        references: {
-          model: 'Roles',
-          key: 'id',
-        },
       },
       permissionId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        references: {
-          model: 'Permissions',
-          key: 'id',
-        },
       },
     });
   },
