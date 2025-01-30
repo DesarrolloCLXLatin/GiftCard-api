@@ -2,43 +2,48 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('GiftCards', {
+    await queryInterface.createTable('Users', {
       id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.INTEGER.UNSIGNED,
         autoIncrement: true,
         primaryKey: true,
       },
-      code: {
-        type: Sequelize.STRING,
+      name: {
+        type: Sequelize.STRING(128),
+        allowNull: false,
+      },
+      lastname: {
+        type: Sequelize.STRING(128),
+        allowNull: false,
+      },
+      username: {
+        type: Sequelize.STRING(128),
         allowNull: false,
         unique: true,
       },
-      amount: {
-        type: Sequelize.FLOAT,
+      email: {
+        type: Sequelize.STRING(128),
+        allowNull: false,
+        unique: true,
+      },
+      password: {
+        type: Sequelize.STRING(128),
         allowNull: false,
       },
-      userId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
+      token: {
+        type: Sequelize.STRING(128),
+        allowNull: true,
       },
-      status: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      serial: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      credit_limit: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      create_at: {
+      token_update: {
         type: Sequelize.DATE,
+        allowNull: true,
+      },
+      roleId: {
+        type: Sequelize.INTEGER.UNSIGNED,
         allowNull: false,
       },
-      update_at: {
-        type: Sequelize.DATE,
+      department: {
+        type: Sequelize.STRING(128),
         allowNull: false,
       },
       createdAt: {
@@ -55,6 +60,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('GiftCards');
+    await queryInterface.dropTable('Users');
   }
 };

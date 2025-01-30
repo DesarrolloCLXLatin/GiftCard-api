@@ -74,7 +74,7 @@ User.init({
     tableName: 'Users',
     sequelize,
     modelName: 'User',
-    timestamps: true, // Habilita el manejo automático de createdAt y updatedAt
+    timestamps: true,
 });
 
 export default User;
